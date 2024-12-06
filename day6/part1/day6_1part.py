@@ -15,15 +15,15 @@ def getPaths(input_grid):
     cols = len(input_grid[0])
     numberofXs = 0
     x_value, y_value = find_coordinates(input_grid)
-    directions = [((0, -1), '^'), ((1, 0), '>'), ((0, 1), 'v'), ((-1, 0), '<')]
+    directions = [((-1, 0), '^', '|'), ((0, 1), '>', '-'), ((1, 0), 'v', '|'), ((0, -1), '<', '-')]
     dic = 0
 
     while 0 <= x_value < cols and 0 <= y_value < rows:
         direction = directions[dic]
         move = direction[0]
         figure = direction[1]
-        new_x_value = x_value + move[0]
-        new_y_value = y_value + move[1]
+        new_x_value = x_value + move[1]
+        new_y_value = y_value + move[0]
 
         if (new_x_value < 0 or new_x_value >= cols) or (new_y_value < 0 or new_y_value >= rows):
             input_grid[y_value][x_value] = "X"
