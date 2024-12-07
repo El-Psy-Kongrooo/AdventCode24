@@ -13,14 +13,14 @@ def readFile():
     return equations
 
 def add(key, values, count):
-    if key == count:
+    if key == count and len(values) == 0:
         return True
     if len(values) == 0:
         return False
     return (add(key, values[1:], count + values[0]) or mul(key, values[1:], count + values[0]))
 
 def mul(key, values, count):
-    if key == count:
+    if key == count and len(values) == 0:
         return True
     if len(values) == 0:
         return False
