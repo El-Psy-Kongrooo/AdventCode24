@@ -22,7 +22,6 @@ def getAntiNotes(grid):
                     distY = abs(value1[1] - value2[1])
                     first_value = value1
                     second_value = value2
-                    n=0
                     while True:
                         if first_value[0] >= second_value[0]:
                             coordX1 = first_value[0] + distX
@@ -36,18 +35,11 @@ def getAntiNotes(grid):
                         if(coordX1>=0 and coordY1>=0 and coordX1 < len(grid) and coordY1 < len(row)):
                             if (coordX1,coordY1) not in coords:
                                 coords.append((coordX1,coordY1))
-                            n+=1
                             first_value, second_value= (coordX1, coordY1), first_value
                         else:
                             break
-                    if n>1:
-                        if value1 not in coords:
-                                coords.append(value1)
-                        if value2 not in coords:
-                                coords.append(value2)
                     first_value = value1
                     second_value = value2
-                    n=0
                     while True:
                         if first_value[0] >= second_value[0]:
                             coordX2 = second_value[0] - distX
@@ -61,18 +53,37 @@ def getAntiNotes(grid):
                         if(coordX2>=0 and coordY2>=0 and coordX2 < len(grid) and coordY2 < len(row)):
                             if (coordX2,coordY2) not in coords:
                                 coords.append((coordX2,coordY2))
-                            n+=1
                             first_value, second_value = second_value, (coordX2, coordY2) 
                         else:
                             break
-                    if n>1:
-                        if value1 not in coords:
-                                coords.append(value1)
-                        if value2 not in coords:
-                                coords.append(value2)
     for coord in coords:
         if grid[coord[0]][coord[1]]=='.':
             grid[coord[0]][coord[1]] = '#'
+            
+    directions = [
+        (-1, 0), (1, 0), (0, -1), (0, 1),  # up, down, left, right
+        (-1, -1), (-1, 1), (1, -1), (1, 1) # diagonals
+    ]
+    for x,row in enumerate(grid): 
+        for y, cell in enumerate(row):
+            if cell != '.' and cell!='#' and (x,y) not in coords:
+                 new_x=x
+                 new_y=y
+                 count=0
+                 flag=False
+                 for dx,dy in directions:
+                    if flag:
+                        break
+                    while 0<= new_x+dx < len(grid) and 0<= new_y+dy <len(row):
+                        new_x= new_x+dx
+                        new_y= new_y+dy
+                        if grid[new_x][new_y]=='#':
+                            count+=1
+                        if count>=2:
+                            coords.append((x,y))
+                            flag=True
+                            break
+
     return grid, coords
 
 def main():
