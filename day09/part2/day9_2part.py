@@ -41,8 +41,11 @@ def find_dot_ranges(line):
 def processedLine(line):
     first_dot = line.index('.') if '.' in line else -1
     last_int = len(line) - 1 
+    flag= True
     while last_int > first_dot:
-        dot_ranges = find_dot_ranges(line)      
+        if flag:
+            dot_ranges = find_dot_ranges(line)  
+            flag= False    
         while last_int > first_dot and not isinstance(line[last_int], int):
             last_int -= 1       
         if last_int > first_dot:
@@ -56,6 +59,7 @@ def processedLine(line):
                     for x in range(num_appears):
                         line[start + x] = num
                         line[last_int - x] = '.'
+                        flag=True
                     break
             last_int-=num_appears
             if line[first_dot]!='.':          
