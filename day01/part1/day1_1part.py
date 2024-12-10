@@ -16,12 +16,7 @@ def getResult():
     left_numbers.sort()
     right_numbers.sort()
     for i in range(len(left_numbers)):
-        if left_numbers[i]>right_numbers[i]:
-            result+=left_numbers[i]-right_numbers[i]
-        if right_numbers[i]>left_numbers[i]:
-            result+=right_numbers[i]-left_numbers[i]
-        else:
-            result+=0
+        result+= abs(left_numbers[i]-right_numbers[i])
     return result
 
 def main():
