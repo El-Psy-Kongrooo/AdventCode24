@@ -7,6 +7,7 @@ So, you'll need to determine which tiles are part of any best path through the m
 
 In the first example, there are 45 tiles (marked O) that are part of at least one of the various best paths through the maze:
 
+```plaintext
 ###############
 #.......#....O#
 #.#.###.#.###O#
@@ -22,8 +23,10 @@ In the first example, there are 45 tiles (marked O) that are part of at least on
 #O###.#.#.#O#O#
 #O..#.....#OOO#
 ###############
+```
 In the second example, there are 64 tiles that are part of at least one of the best paths:
 
+```plaintext
 #################
 #...#...#...#..O#
 #.#.#.#.#.#.#.#O#
@@ -41,4 +44,6 @@ In the second example, there are 64 tiles that are part of at least one of the b
 #O#O#O#########.#
 #O#OOO..........#
 #################
+```
+
 Analyze your map further. How many tiles are part of at least one of the best paths through the maze?
