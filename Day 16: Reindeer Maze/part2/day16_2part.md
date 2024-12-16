@@ -1,4 +1,4 @@
---- Part Two ---
+# --- Part Two ---
 Now that you know what the best paths look like, you can figure out the best spot to sit.
 
 Every non-wall tile (S, ., or E) is equipped with places to sit along the edges of the tile. While determining which of these tiles would be the best spot to sit depends on a whole bunch of factors (how comfortable the seats are, how far away the bathrooms are, whether there's a pillar blocking your view, etc.), the most important factor is whether the tile is on one of the best paths through the maze. If you sit somewhere else, you'd miss all the action!
