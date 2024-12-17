@@ -8,9 +8,9 @@ For example:
 Register A: 2024  
 Register B: 0  
 Register C: 0  
-```
 
 Program: 0,3,5,4,3,0  
+```
 
 This program outputs a copy of itself if register A is instead initialized to 117440. (The original initial value of register A, 2024, is ignored.)
 
